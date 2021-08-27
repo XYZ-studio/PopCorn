@@ -1,4 +1,4 @@
-import React, {FC} from "react";
+import React, { FC } from "react";
 import './sass/count.sass';
 
 interface CountType {
@@ -6,10 +6,16 @@ interface CountType {
     styleSwitch: boolean
 }
 
-const Count: FC<CountType> = ({count, styleSwitch}) => {
+const Count: FC<CountType> = ({ count, styleSwitch }) => {
 
     return (
-        <div className="count" style={{fontSize: styleSwitch ? '60px' : ''}}>
+        <div
+            className="count"
+            style={{
+                fontSize: styleSwitch ? '60px' : '',
+                transform: styleSwitch ? 'rotate(-10deg)' : ''
+            }}
+        >
             {count}
         </div>
     );
