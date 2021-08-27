@@ -40,6 +40,7 @@ var react_1 = require("react");
 var count_1 = require("./components/count");
 var title_1 = require("./components/title");
 require("./index.sass");
+require("./components/sass/image.sass");
 var keyList = [];
 var sleep = function (ms) {
     return new Promise(function (resolve) { return setTimeout(resolve, ms); });
@@ -128,6 +129,7 @@ var App = function () {
     };
     return (react_1["default"].createElement("div", { className: "App" },
         react_1["default"].createElement(title_1["default"], null),
-        react_1["default"].createElement(count_1["default"], { count: count, styleSwitch: styleSwitch })));
+        react_1["default"].createElement(count_1["default"], { count: count, styleSwitch: styleSwitch }),
+        react_1["default"].createElement("div", { id: "image", className: touch ? 'no-touch' : 'touch' })));
 };
 exports["default"] = App;

@@ -1,7 +1,8 @@
-import React, { FC, useState, useEffect } from 'react';
+import React, { FC, useState } from 'react';
 import Count from './components/count';
 import Title from './components/title';
 import './index.sass';
+import './components/sass/image.sass';
 
 const keyList: Array<string> = [];
 const sleep = (ms: number) => {
@@ -18,7 +19,7 @@ const App: FC = () => {
   const [styleSwitch, setStyleSwitch] = useState(false);
   const [touch, setTouch] = useState(false);
 
-  if (isMobileDevice()) {
+  if (isMobileDevice()) { 
     // mobile
     document.ontouchstart = () => {
       setCount(count + 1);
@@ -50,10 +51,6 @@ const App: FC = () => {
     }
   }
 
-
-
-
-
   // key event
   document.onkeydown = (event: KeyboardEvent) => {
     if (!keyList.includes(event.code)) {
@@ -79,6 +76,7 @@ const App: FC = () => {
     <div className="App">
       <Title />
       <Count count={count} styleSwitch={styleSwitch} />
+      <div id="image" className={touch ? 'no-touch' : 'touch'}></div>
     </div>
   );
 }
