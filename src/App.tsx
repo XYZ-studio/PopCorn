@@ -14,37 +14,31 @@ const isMobileDevice = () => {
   return isMobileDevice
 }
 
+
 const App: FC = () => {
   const [count, setCount] = useState(0);
   const [styleSwitch, setStyleSwitch] = useState(false);
   const [touch, setTouch] = useState(false);
-
+  const touchFun = () => {
+    setCount(count + 1);
+    setTouch(true);
+    
+    (async () => {
+      setStyleSwitch(true);
+      await sleep(100);
+      setStyleSwitch(false);
+    })();
+  };
   if (isMobileDevice()) { 
     // mobile
-    document.ontouchstart = () => {
-      setCount(count + 1);
-      setTouch(true);
-      (async () => {
-        setStyleSwitch(true);
-        await sleep(100);
-        setStyleSwitch(false);
-      })();
-    }
+    document.ontouchstart = touchFun;
 
     document.ontouchend = () => {
       setTouch(false);
     }
   } else {
     // not mobile
-    document.onmousedown = () => {
-      setCount(count + 1);
-      setTouch(true);
-      (async () => {
-        setStyleSwitch(true);
-        await sleep(100);
-        setStyleSwitch(false);
-      })();
-    };
+    document.onmousedown = touchFun;
 
     document.onmouseup = () => {
       setTouch(false);
@@ -54,14 +48,8 @@ const App: FC = () => {
   // key event
   document.onkeydown = (event: KeyboardEvent) => {
     if (!keyList.includes(event.code)) {
-      setCount(count + 1);
-      setTouch(true);
+      touchFun();
       keyList.push(event.code);
-      (async () => {
-        setStyleSwitch(true);
-        await sleep(100);
-        setStyleSwitch(false);
-      })();
     }
   };
 

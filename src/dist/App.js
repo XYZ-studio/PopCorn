@@ -54,48 +54,33 @@ var App = function () {
     var _a = react_1.useState(0), count = _a[0], setCount = _a[1];
     var _b = react_1.useState(false), styleSwitch = _b[0], setStyleSwitch = _b[1];
     var _c = react_1.useState(false), touch = _c[0], setTouch = _c[1];
+    var touchFun = function () {
+        setCount(count + 1);
+        setTouch(true);
+        (function () { return __awaiter(void 0, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        setStyleSwitch(true);
+                        return [4 /*yield*/, sleep(100)];
+                    case 1:
+                        _a.sent();
+                        setStyleSwitch(false);
+                        return [2 /*return*/];
+                }
+            });
+        }); })();
+    };
     if (isMobileDevice()) {
         // mobile
-        document.ontouchstart = function () {
-            setCount(count + 1);
-            setTouch(true);
-            (function () { return __awaiter(void 0, void 0, void 0, function () {
-                return __generator(this, function (_a) {
-                    switch (_a.label) {
-                        case 0:
-                            setStyleSwitch(true);
-                            return [4 /*yield*/, sleep(100)];
-                        case 1:
-                            _a.sent();
-                            setStyleSwitch(false);
-                            return [2 /*return*/];
-                    }
-                });
-            }); })();
-        };
+        document.ontouchstart = touchFun;
         document.ontouchend = function () {
             setTouch(false);
         };
     }
     else {
         // not mobile
-        document.onmousedown = function () {
-            setCount(count + 1);
-            setTouch(true);
-            (function () { return __awaiter(void 0, void 0, void 0, function () {
-                return __generator(this, function (_a) {
-                    switch (_a.label) {
-                        case 0:
-                            setStyleSwitch(true);
-                            return [4 /*yield*/, sleep(100)];
-                        case 1:
-                            _a.sent();
-                            setStyleSwitch(false);
-                            return [2 /*return*/];
-                    }
-                });
-            }); })();
-        };
+        document.onmousedown = touchFun;
         document.onmouseup = function () {
             setTouch(false);
         };
@@ -103,22 +88,8 @@ var App = function () {
     // key event
     document.onkeydown = function (event) {
         if (!keyList.includes(event.code)) {
-            setCount(count + 1);
-            setTouch(true);
+            touchFun();
             keyList.push(event.code);
-            (function () { return __awaiter(void 0, void 0, void 0, function () {
-                return __generator(this, function (_a) {
-                    switch (_a.label) {
-                        case 0:
-                            setStyleSwitch(true);
-                            return [4 /*yield*/, sleep(100)];
-                        case 1:
-                            _a.sent();
-                            setStyleSwitch(false);
-                            return [2 /*return*/];
-                    }
-                });
-            }); })();
         }
     };
     document.onkeyup = function (event) {
