@@ -41,6 +41,7 @@ var count_1 = require("./components/count");
 var title_1 = require("./components/title");
 require("./index.sass");
 require("./components/sass/image.sass");
+var react_cookie_1 = require("react-cookie");
 var keyList = [];
 var sleep = function (ms) {
     return new Promise(function (resolve) { return setTimeout(resolve, ms); });
@@ -51,12 +52,16 @@ var isMobileDevice = function () {
     return isMobileDevice;
 };
 var App = function () {
-    var _a = react_1.useState(0), count = _a[0], setCount = _a[1];
-    var _b = react_1.useState(false), styleSwitch = _b[0], setStyleSwitch = _b[1];
-    var _c = react_1.useState(false), touch = _c[0], setTouch = _c[1];
+    var _a = react_cookie_1.useCookies(['count']), cookies = _a[0], setCookie = _a[1], removeCookie = _a[2];
+    var _b = react_1.useState(0), count = _b[0], setCount = _b[1];
+    var _c = react_1.useState(false), styleSwitch = _c[0], setStyleSwitch = _c[1];
+    var _d = react_1.useState(false), touch = _d[0], setTouch = _d[1];
     var touchFun = function () {
         setCount(count + 1);
         setTouch(true);
+        var audio = new Audio('wtf.mp3');
+        audio.volume = 0.5;
+        audio.play();
         (function () { return __awaiter(void 0, void 0, void 0, function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
@@ -100,6 +105,13 @@ var App = function () {
                 keyList.splice(index, 1);
         }
     };
+    react_1.useEffect(function () {
+        if (cookies.count)
+            setCount(Number(cookies.count));
+    }, []);
+    react_1.useEffect(function () {
+        setCookie('count', count);
+    }, [count]);
     return (react_1["default"].createElement("div", { className: "App" },
         react_1["default"].createElement(title_1["default"], null),
         react_1["default"].createElement(count_1["default"], { count: count, styleSwitch: styleSwitch }),
