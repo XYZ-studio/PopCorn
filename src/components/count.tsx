@@ -1,4 +1,5 @@
 import React, {FC} from "react";
+import './sass/count.sass';
 
 interface CountType {
     count: number,
@@ -8,7 +9,7 @@ interface CountType {
 const Count: FC<CountType> = ({count, styleSwitch}) => {
 
     return (
-        <div className={styleSwitch ? 'count' : ''}>
+        <div className="count" style={{fontSize: styleSwitch ? '60px' : ''}}>
             {count}
         </div>
     );

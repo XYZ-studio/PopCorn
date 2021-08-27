@@ -14,6 +14,11 @@ const App: FC = () => {
   
   document.onclick = () => {
     setCount(count + 1);
+    (async() => {
+      setStyleSwitch(true);
+      await sleep(100);
+      setStyleSwitch(false);
+    })();
   };
 
   document.onkeydown = (event: KeyboardEvent) => {
@@ -23,7 +28,7 @@ const App: FC = () => {
       keyList.push(event.code);
       (async() => {
         setStyleSwitch(true);
-        await sleep(500);
+        await sleep(100);
         setStyleSwitch(false);
       })();
     }
