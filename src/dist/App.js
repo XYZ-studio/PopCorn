@@ -104,6 +104,7 @@ var App = function () {
     document.onkeydown = function (event) {
         if (!keyList.includes(event.code)) {
             setCount(count + 1);
+            setTouch(true);
             keyList.push(event.code);
             (function () { return __awaiter(void 0, void 0, void 0, function () {
                 return __generator(this, function (_a) {
@@ -123,6 +124,7 @@ var App = function () {
     document.onkeyup = function (event) {
         if (keyList.includes(event.code)) {
             var index = keyList.indexOf(event.code);
+            setTouch(false);
             if (index > -1)
                 keyList.splice(index, 1);
         }

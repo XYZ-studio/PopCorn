@@ -55,6 +55,7 @@ const App: FC = () => {
   document.onkeydown = (event: KeyboardEvent) => {
     if (!keyList.includes(event.code)) {
       setCount(count + 1);
+      setTouch(true);
       keyList.push(event.code);
       (async () => {
         setStyleSwitch(true);
@@ -67,6 +68,7 @@ const App: FC = () => {
   document.onkeyup = (event: KeyboardEvent) => {
     if (keyList.includes(event.code)) {
       const index = keyList.indexOf(event.code);
+      setTouch(false);
       if (index > -1)
         keyList.splice(index, 1);
     }
