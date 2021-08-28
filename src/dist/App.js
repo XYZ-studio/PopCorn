@@ -52,7 +52,7 @@ var isMobileDevice = function () {
     return isMobileDevice;
 };
 var App = function () {
-    var _a = react_cookie_1.useCookies(['count']), cookies = _a[0], setCookie = _a[1], removeCookie = _a[2];
+    var _a = react_cookie_1.useCookies(['count']), cookies = _a[0], setCookie = _a[1];
     var _b = react_1.useState(0), count = _b[0], setCount = _b[1];
     var _c = react_1.useState(false), styleSwitch = _c[0], setStyleSwitch = _c[1];
     var _d = react_1.useState(false), touch = _d[0], setTouch = _d[1];

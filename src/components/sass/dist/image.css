@@ -11,3 +11,7 @@
 .touch {
   background-image: url(../img/image0_adobespark.png);
 }
+
+.no-touch {
+  background-image: url("../img/popcorn.png");
+}

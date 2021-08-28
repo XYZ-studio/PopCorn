@@ -17,7 +17,7 @@ const isMobileDevice = () => {
 
 
 const App: FC = () => {
-  const [cookies, setCookie, removeCookie] = useCookies(['count']);
+  const [cookies, setCookie] = useCookies(['count']);
   const [count, setCount] = useState(0);
   const [styleSwitch, setStyleSwitch] = useState(false);
   const [touch, setTouch] = useState(false);
