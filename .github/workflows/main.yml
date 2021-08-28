@@ -38,4 +38,4 @@ jobs:
         git checkout -b gh-pages-1
         git add --all
         git commit -m "update"
-        git push origin github-page -f
+        git push origin gh-pages-1 -f
