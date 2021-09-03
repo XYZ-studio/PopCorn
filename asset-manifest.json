@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/static/css/main.194fda7f.chunk.css",
+    "main.js": "/static/js/main.2ba5670d.chunk.js",
+    "main.js.map": "/static/js/main.2ba5670d.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.ee4ddef2.js",
+    "runtime-main.js.map": "/static/js/runtime-main.ee4ddef2.js.map",
+    "static/js/2.037f8cb2.chunk.js": "/static/js/2.037f8cb2.chunk.js",
+    "static/js/2.037f8cb2.chunk.js.map": "/static/js/2.037f8cb2.chunk.js.map",
+    "static/js/3.f8ee1d93.chunk.js": "/static/js/3.f8ee1d93.chunk.js",
+    "static/js/3.f8ee1d93.chunk.js.map": "/static/js/3.f8ee1d93.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/main.194fda7f.chunk.css.map": "/static/css/main.194fda7f.chunk.css.map",
+    "static/js/2.037f8cb2.chunk.js.LICENSE.txt": "/static/js/2.037f8cb2.chunk.js.LICENSE.txt",
+    "static/media/image.sass": "/static/media/popcorn.b07b21bc.png",
+    "static/media/index.sass": "/static/media/南工校門.14921113.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.ee4ddef2.js",
+    "static/js/2.037f8cb2.chunk.js",
+    "static/css/main.194fda7f.chunk.css",
+    "static/js/main.2ba5670d.chunk.js"
+  ]
+}
